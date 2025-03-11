@@ -1,6 +1,4 @@
 # docker-stable-diffusion
-Claro! Aqui está uma descrição para o seu Docker "Docker Stable Diffusion":
-
 ---
 
 ### **Docker Stable Diffusion**
@@ -24,7 +22,7 @@ Com este Docker, você pode gerar imagens impressionantes a partir de prompts de
 1. **Instale o Docker**: Certifique-se de que o Docker está instalado e configurado no seu sistema.
 2. **Baixe a branch**:
    ```bash
-   git clone aaaaa
+   git clone https://github.com/japa-dev-ai/docker-stable-diffusion.git
    ```
 3. **Execute o Contêiner**:
    ```bash
@@ -44,6 +42,7 @@ Com este Docker, você pode gerar imagens impressionantes a partir de prompts de
 ---
 
 ### **Links Úteis**
+- [Repositório do stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui.git)
 - [Documentação do Stable Diffusion](https://github.com/CompVis/stable-diffusion)
 - [Instalação do Docker](https://docs.docker.com/get-docker/)
 - [NVIDIA Docker Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
@@ -67,4 +66,3 @@ Clone o repositório, execute o contêiner e comece a gerar imagens incríveis c
 
 ---
 
-Se precisar de mais detalhes ou ajustes na descrição, é só me avisar! 😊

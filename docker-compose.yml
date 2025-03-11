@@ -1,19 +1,19 @@
-version: "3.8"
 services:
   aicovergen:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: aistable_diffusion
-    volumes:
-      - my-volume:/app
-    entrypoint: /usr/local/bin/entrypoint.sh
-    network_mode: host
+    container_name: ai_stable_diffusion
+    restart: unless-stopped
+    environment:
+      - TZ=America/Sao_Paulo
+    # volumes:
+    #   - ./outputs:/app/outputs
+    networks:
+      - net_sd_diff
     ports:
       - "22:22"
       - "7861:7860"
-    environment:
-      - TZ=America/Sao_Paulo
     deploy:
       resources:
         reservations:
@@ -22,5 +22,11 @@ services:
               count: 1
               capabilities: [gpu]
 
-volumes:
-  my-volume:
+networks:
+  net_sd_diff:
+    name: net_sd_diff
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24 # Define uma sub-rede para a rede
+          gateway: 192.168.100.1  

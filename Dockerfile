@@ -1,6 +1,5 @@
 # Dockerfile
 FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
-#FROM nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Sao_Paulo
@@ -22,13 +21,12 @@ RUN echo "PermitRootLogin no" >> /etc/ssh/sshd_config && \
     echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
     echo "AllowUsers sduser" >> /etc/ssh/sshd_config
 
+RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git /app
+RUN sudo chown -R sduser:sduser /app
+RUN sudo chmod -R 755 /app
+
 WORKDIR /app
 
 EXPOSE 22 7860
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
-
+CMD service ssh start && su - sduser -c 'python3 /app/launch.py'

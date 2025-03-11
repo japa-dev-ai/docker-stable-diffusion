@@ -13,9 +13,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Cria usuário
+# Cria o usuário
 RUN useradd -m sduser && echo "sduser:1234" | chpasswd 
-#RUN usermod -aG sudo sduser
 
 # Configura o SSH
 RUN mkdir /var/run/sshd
@@ -29,7 +28,6 @@ EXPOSE 22 7860
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
-
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 

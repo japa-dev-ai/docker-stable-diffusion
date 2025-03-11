@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  aicovergen:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aistable_diffusion
+    volumes:
+      - my-volume:/app
+    entrypoint: /usr/local/bin/entrypoint.sh
+    network_mode: host
+    ports:
+      - "22:22"
+      - "7861:7860"
+    environment:
+      - TZ=America/Sao_Paulo
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  my-volume:

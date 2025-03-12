@@ -36,6 +36,3 @@ RUN chmod +x /start_webui.sh
 
 EXPOSE 22 7860
 CMD service ssh start && /start_webui.sh && tail -f /dev/null
-#CMD service ssh start && su - sduser -c 'python3 /app/launch.py'
-# Comandos a serem executados no container
-# CMD service ssh start && zerotier-cli join shdgewyugrr436 && tail -f /dev/null

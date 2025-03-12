@@ -1,5 +1,5 @@
 services:
-  aicovergen:
+  aistablediffusion:
     build:
       context: .
       dockerfile: Dockerfile
@@ -26,7 +26,3 @@ networks:
   net_sd_diff:
     name: net_sd_diff
     driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.100.0/24 # Define uma sub-rede para a rede
-          gateway: 192.168.100.1  

@@ -1,0 +1,14 @@
+[Unit]
+Description=WebUI Service
+After=network.target
+
+[Service]
+Type=simple
+User=sduser
+WorkingDirectory=/app
+ExecStart=/bin/bash /app/webui.sh --share
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
